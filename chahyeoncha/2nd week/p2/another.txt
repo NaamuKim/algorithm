@@ -14,7 +14,7 @@ for k:=0; k<(n/2); k++ {
 	Combination(n-(2*k),2)
 	x+=x
 	}
-var y int = x/factorial(n/2) // Ã¹ÁÙ
+var y int = x/factorial(n/2) // only in first case
 }
 
 func factorial(n int) int {
