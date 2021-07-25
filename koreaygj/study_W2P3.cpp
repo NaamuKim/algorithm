@@ -26,5 +26,5 @@ int main()
       }
     }
   }
-  cout << i_max;
+  cout << i_max << endl;
 }
