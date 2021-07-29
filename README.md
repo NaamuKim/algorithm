@@ -3,4 +3,4 @@
 ### Procedure
 - [x] Searching Array
 - [x] Recursice Function
-- [ ] Brute Force
+- [x] Brute Force
