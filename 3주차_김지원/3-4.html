@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>출력결과</title>
+	</head>
+	<body>
+		<script>
+			function solution(arr) {
+				let answer = 0,
+					n = 6;
+				arr.sort((a, b) => a - b);
+				let p1 = 0,
+					p2 = n - 1;
+				while (p1 < p2) {
+					if (arr[p1] + arr[p2] == 9) {
+						answer++;
+						p2--;
+						p1++;
+					} else if (arr[p1] + arr[p2] > 9) p2--;
+					else p1++;
+				}
+				return answer;
+			}
+
+			let a = [2, 7, 4, 1, 5, 3];
+
+			console.log(solution(a));
+		</script>
+	</body>
+</html>
