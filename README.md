@@ -5,4 +5,6 @@
 - [x] Searching Array
 - [x] Recursice Function
 - [x] Brute Force
-- [ ] Two Pointer
+- [x] Two Pointer
+- [ ] Stack
+- [ ] Que

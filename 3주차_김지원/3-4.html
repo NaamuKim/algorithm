@@ -5,9 +5,8 @@
 	</head>
 	<body>
 		<script>
-			function solution(arr) {
-				let answer = 0,
-					n = 6;
+			function solution(n, arr) {
+				let answer = 0;
 				arr.sort((a, b) => a - b);
 				let p1 = 0,
 					p2 = n - 1;
@@ -21,10 +20,10 @@
 				}
 				return answer;
 			}
-
+			let n = 6;
 			let a = [2, 7, 4, 1, 5, 3];
 
-			console.log(solution(a));
+			console.log(solution(n, a));
 		</script>
 	</body>
 </html>
