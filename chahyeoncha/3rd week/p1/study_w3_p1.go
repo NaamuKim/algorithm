@@ -25,7 +25,6 @@ func main() {
 	sort.Sort(sort.IntSlice(a))
 	sort.Sort(sort.IntSlice(b))
 	fmt.Println(Intersect(a, b)) // complexitsy : O(n^2)
-
 }
 
 func Intersect(a interface{}, b interface{}) []interface{} {
