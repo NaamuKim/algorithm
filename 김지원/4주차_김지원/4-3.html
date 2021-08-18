@@ -11,7 +11,7 @@
 				for (let i = 0; i < s.length; i++) {
 					/* 여는 가로는 무지성푸쉬 조각개수에 영향 못줌 */
 					if (s[i] === "(") stack.push("(");
-					/* 닫는 가로 1=레이저 2=막대기 끝*/ else {
+					/* 닫는 가로 1=레이저 2=막대기 끝 */ else {
 						stack.pop();
 						if (s[i - 1] === "(") answer += stack.length;
 						else answer++;
@@ -19,7 +19,7 @@
 				}
 				return answer;
 			}
-			let a = "(((()(()()))(())()))(()())";
+			let a = "()(((()())(())()))(())";
 			console.log(solution(a));
 		</script>
 	</body>
