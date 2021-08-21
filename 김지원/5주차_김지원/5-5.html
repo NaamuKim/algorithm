@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>5-5.html</title>
+	</head>
+	<body>
+		<script>
+			function solution(s) {
+				let numbers = [
+					"zero",
+					"one",
+					"two",
+					"three",
+					"four",
+					"five",
+					"six",
+					"seven",
+					"eight",
+					"nine",
+				];
+				let answer = s;
+				for (let i = 0; i <= numbers.length; i++) {
+					let arr = answer.split(numbers[i]);
+					console.log(arr);
+					answer = arr.join(i);
+				}
+				return answer;
+			}
+
+			let example = "one2three4";
+			console.log(solution(example));
+		</script>
+	</body>
+</html>
