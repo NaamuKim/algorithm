@@ -1,30 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
+
 	var n, k int
 	fmt.Scanf("%d %d", &n, &k)
-	chair := make([]int, n+1)
-	attacked := make([]int, n+1)
+
+	var chair, attacked []int
 	for i := 1; i <= n; i++ {
-		chair[i] = i
+		chair = append(chair, i)
 	}
-	temp := make([]int, len(chair))
-	copy(temp, chair)
-	for j := 1; j <= n; j++ {
-		if n-j >= k {
-			attacked[j] = temp[k]
-			remove_element(temp, k)
-			temp = append(temp[k:], temp[:k]...)
+
+	var temp int
+	for len(chair) > 0 {
+		temp = (temp + k - 1) % len(chair)
+		attacked = append(attacked, chair[temp])
+		chair = append(chair[:temp], chair[temp+1:]...)
+	}
+
+	for i, v := range attacked {
+		if i == 0 {
+			fmt.Printf("<%d", v)
 		} else {
-			for x := 0; x < k; x++ {
-				attacked[j] = chair[x]
-			}
+			fmt.Printf(", %d", v)
 		}
 	}
-	fmt.Println("<%d"attacked[1:])
-}
-func remove_element(src []int, k int) []int {
-	return append(src[:k], src[k+1:]...)
+	fmt.Println(">")
 }
