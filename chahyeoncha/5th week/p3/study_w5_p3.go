@@ -5,20 +5,26 @@ import "fmt"
 func main() {
 	var n, k int
 	fmt.Scanf("%d %d", &n, &k)
-	chair := make([]int, n)
-	person := make([]int, n)
-	attacked := make([]int, n)
-	for i := 0; i < n; i++ {
-		chair[i] = i + 1
-		person[i] = i + 1
+	chair := make([]int, n+1)
+	attacked := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		chair[i] = i
 	}
-	for j := 0; j < n; j++ {
-		attacked[j] = chair[k-1]
-		if attacked[j]+k == n {
-			chair[k-1] = chair[attacked[j]+k-1]
-		} else if attacked[j]+k < n {
-			chair[k-1] = chair[attacked[j]+k-1]
+	temp := make([]int, len(chair))
+	copy(temp, chair)
+	for j := 1; j <= n; j++ {
+		if n-j >= k {
+			attacked[j] = temp[k]
+			remove_element(temp, k)
+			temp = append(temp[k:], temp[:k]...)
+		} else {
+			for x := 0; x < k; x++ {
+				attacked[j] = chair[x]
+			}
 		}
 	}
-	fmt.Printf("%d", attacked)
+	fmt.Println("<%d"attacked[1:])
+}
+func remove_element(src []int, k int) []int {
+	return append(src[:k], src[k+1:]...)
 }
