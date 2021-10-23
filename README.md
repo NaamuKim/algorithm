@@ -6,5 +6,8 @@
 - [x] Recursice Function
 - [x] Brute Force
 - [x] Two Pointer
-- [ ] Stack
-- [ ] Que
+- [x] Stack
+- [x] Que
+- [x] greedy
+- [x] fix
+ 
