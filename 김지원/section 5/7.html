@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(str1, str2){
+        let answer="YES";
+        let arr1=[];
+        let arr2=[];
+        let obj1={};
+        let obj2={};
+        for(let x of str1){
+            if(obj1[x]) obj1[x]++;
+            else obj1[x]=1;
+        }
+        for(let x of str2){
+            if(obj2[x]) obj2[x]++;
+            else obj2[x]=1;
+        }
+        for(let x in obj1){
+            arr1.push([x,obj1[x]]);
+        }
+        for(let x in obj2){
+            arr2.push([x,obj2[x]]);
+        }
+        console.log(arr1,arr2);
+
+        arr1.sort()
+        arr2.sort();
+        for(let i=0;i<arr1.length;i++){
+            if(arr1[i][0]!==arr2[i][0]) {
+                return "NO"
+            }
+            if(arr1[i][1]!==arr2[i][1]){
+                return "NO"
+            }
+        }
+        return answer;
+    }
+
+    let a="abaCC\n";
+    let b="Caaab\n";
+    console.log(solution(a, b));
+</script>
+</body>
+</html>

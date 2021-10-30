@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s){
+        let answer;
+        let arr=[];
+        let obj={};
+        for(let x of s){
+            if(obj[x]) obj[x]++;
+            else obj[x]=1;
+        }
+        for(let x in obj){
+            arr.push([x,obj[x]]);
+        }
+        console.log(arr);
+        arr.sort((a,b)=>a[1]-b[1]);
+        answer=arr[arr.length-1][0];
+        return answer;
+    }
+
+    let str="BACBACCACCBDEDE";
+    console.log(solution(str));
+</script>
+</body>
+</html>
