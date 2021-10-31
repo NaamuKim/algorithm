@@ -1,26 +1,20 @@
 const fs=require("fs");
 const filePath=process.platform==='linux' ? "/dev/stdin" : './input.txt';
-let input= fs.readFileSync(filePath).toString().split('\n');
+let input= fs.readFileSync(filePath).toString().trim().split('\n');
 
-input= input[0];
+let arr=[];
+solution(+input[0]);
 
-solution(input);
+function splitSum(n){
+    let num=n.toString().split("").map(item=>+item).reduce((a,b)=>a+b);
+    return num+n;
+}
 
-function solution(number) {
-    let result = 1;
-
-    for (let i = 1; i < number; i++) {
-        result = i;
-
-        const stringValue = i.toString();
-
-        for (let j = 0; j < stringValue.length; j++) {
-            result += parseInt(stringValue[j], 10);
-        }
-        if (result === number) {
-            console.log(i);
-            return;
-        }
+function solution(n) {
+    for(let i=0;i<=n;i++){
+        if(splitSum(i)===n) arr.push(i);
     }
-    console.log(0);
+    arr.sort((a,b)=>a-b);
+    if(arr[0])console.log(arr[0]);
+    else console.log(0);
 }
