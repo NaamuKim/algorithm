@@ -10,7 +10,9 @@
         let n=arr.length;
         function DFS(L,sum){
             if(sum>c) return;
-            if(L===n){answer=Math.max(answer,sum)}
+            if(L===n){
+                answer=Math.max(answer,sum);
+            }
             else{
                 DFS(L+1,sum+arr[L]);
                 DFS(L+1,sum);

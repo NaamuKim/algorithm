@@ -9,16 +9,14 @@
         let answer="NO" , flag=0;
         let total=arr.reduce((a,b)=>a+b)
         function DFS(L,sum){
-            if(flag) return;
             if(L===arr.length){
-                if((total-sum)===sum){
-                    answer="YES";
-                    flag=1;
-                }
-            }
-            else {
-                DFS(L+1, sum+arr[L]);
-                DFS(L+1, sum)
+                if(total-sum===sum){
+                answer="YES"
+                return;
+            }}
+            else{
+                DFS(L+1,sum+arr[L]);
+                DFS(L+1,sum);
             }
         }
         DFS(0,0);
