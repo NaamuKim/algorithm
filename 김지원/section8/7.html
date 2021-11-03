@@ -8,15 +8,16 @@
     function solution(m, ps, pt){
         let answer=Number.MIN_SAFE_INTEGER;
         let n=ps.length;
-        function DFS(L,sum,time){
-            if(time>m)return;
-            if(L===n) answer=Math.max(answer,sum);
+        function DFS(L,point,time){
+            if(L===n){
+                if(time<=m) answer=Math.max(answer,point);
+            }
             else{
-                DFS(L+1,sum+ps[L],time+pt[L]);
-                DFS(L+1,sum,time);
+                DFS(L+1,point+ps[L],time+pt[L]);
+                DFS(L+1,point,time);
             }
         }
-        DFS(0, 0, 0);
+        DFS(0,0,0)
         return answer;
     }
 
