@@ -7,17 +7,12 @@
 <script>
     function solution(meeting){
         let answer=1;
-        meeting.sort((a,b)=> {
-            if(a[1]===b[1]) return a[0]-b[0];
-            else return a[1]-b[1];
-        });
-        console.log(meeting);
-        let ft=meeting[0][1];
-        for(let i=1;i<meeting.length;i++){
-            if(meeting[i][0]>=ft) {
-                ft=meeting[i][0];
-                answer++;
-            }
+        meeting.sort((a,b)=>{
+            if(a[1]!==b[1]) return a[1]-b[1];
+            else return a[0]-b[0];
+        })
+        for(let i=0;i<meeting.length-1;i++){
+            if(meeting[i][1]<=meeting[i+1][0]) answer++;
         }
         return answer;
     }
