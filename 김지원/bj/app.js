@@ -1,28 +1,37 @@
 const fs=require("fs");
 const filePath=process.platform==='linux' ? "/dev/stdin" : './input.txt';
 let input= fs.readFileSync(filePath).toString().trim().split('\n');
-let arr=[];
-for(let i=1;i<input.length;i++){
-    arr.push(Number(input[i].trim()))
-}
-console.log(arr);
-solution(arr);
 
-function solution(arr) {
-    arr.sort((a,b)=>a-b);
-    let sum=arr.reduce((a,b)=>a+b,0);
-    let sH=new Map();
-    for(let x of arr){
-        if(sH.has(x)) sH.set(x,sH.get(x)+1);
-        else sH.set(x,1);
+let n=input[0].split(" ").shift();
+let k=input[0].split(" ").pop();
+let kit=input[1].split(" ").map((item)=>+item);
+
+solution(n,k,kit);
+
+function solution(n,k,kit) {
+    let threeWeight=500;
+    let cnt=0;
+    let tmp=Array.from({length:n}, ()=>0);
+    function DFS(L){
+        if(L===n-1)   cnt++
+        else{
+            for(let i=0;i<n;i++){
+                if(tmp[i]===0){
+                    tmp[i]=1;
+                    if(threeWeight+kit[i]>=500){
+                        threeWeight+=kit[i];
+                        DFS(L+1);
+                        threeWeight-=kit[i];
+                        tmp[i]=0;
+                    }
+                    else tmp[i]=0;
+                }
+            }
+        }
     }
-    let max=1;
-    let maxKey=1;
-    for(let [key,val] of sH){
-        if(max<val) maxKey=key;
+    for(let j=0;j<kit.length;j++){
+        kit[j]-=k;
     }
-    console.log(Math.round(sum/arr.length));
-    console.log(arr[parseInt(arr.length/2)]);
-    console.log(maxKey);
-    console.log(arr[arr.length-1]-arr[0]);
+    DFS(0);
+    console.log(cnt);
 }
