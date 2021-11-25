@@ -2,36 +2,29 @@ const fs=require("fs");
 const filePath=process.platform==='linux' ? "/dev/stdin" : './input.txt';
 let input= fs.readFileSync(filePath).toString().trim().split('\n');
 
-let n=input[0].split(" ").shift();
-let k=input[0].split(" ").pop();
-let kit=input[1].split(" ").map((item)=>+item);
+let Arr=[];
+for(let i=1;i<input.length;i++){
+    Arr.push(input[i].trim().split(""));
+}
 
-solution(n,k,kit);
+solution(Arr);
 
-function solution(n,k,kit) {
-    let threeWeight=500;
-    let cnt=0;
-    let tmp=Array.from({length:n}, ()=>0);
-    function DFS(L){
-        if(L===n-1)   cnt++
-        else{
-            for(let i=0;i<n;i++){
-                if(tmp[i]===0){
-                    tmp[i]=1;
-                    if(threeWeight+kit[i]>=500){
-                        threeWeight+=kit[i];
-                        DFS(L+1);
-                        threeWeight-=kit[i];
-                        tmp[i]=0;
-                    }
-                    else tmp[i]=0;
-                }
+function solution(arr) {
+    let stack=[];
+    let flag=0
+    for(let i=0;i<arr.length;i++){
+        for(let j=0;j<arr[i].length;j++){
+            if(arr[i][j]==="(") stack.push(arr[i][j]);
+            else if(arr[i][j]===")"&&stack[0]) stack.pop();
+            else if(arr[i][j]===")"&&!stack[0]) {
+                flag=1
+                break;
             }
         }
+        if(flag===0&&!stack[0])console.log("YES");
+        else console.log("NO");
+        flag=0;
+        stack=[];
     }
-    for(let j=0;j<kit.length;j++){
-        kit[j]-=k;
-    }
-    DFS(0);
-    console.log(cnt);
+
 }
