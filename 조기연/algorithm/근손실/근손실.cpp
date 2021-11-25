@@ -20,7 +20,7 @@ void rec(int day, int sum) {
 	for (int i = 0; i < N; i++) 
 	{
 		if (dat[i] == 1)
-			continue;
+			`continue;
 
 		dat[i] = 1;
 		rec(day + 1, sum + A[i] - K);
