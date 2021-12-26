@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e35e93f1-a20a-44b2-ae1d-d99c74ef8766": {
+      "ProjectGuid": "e35e93f1-a20a-44b2-ae1d-d99c74ef8766",
+      "DisplayName": "퇴사",
+      "ColorIndex": 0
+    },
+    "8b7a0cf3-33ea-4537-8157-c795f987e721": {
+      "ProjectGuid": "8b7a0cf3-33ea-4537-8157-c795f987e721",
+      "DisplayName": "시저 암호",
+      "ColorIndex": 1
+    },
+    "af7b408d-230f-4e5c-9f1a-b7e820ddddc7": {
+      "ProjectGuid": "af7b408d-230f-4e5c-9f1a-b7e820ddddc7",
+      "DisplayName": "슈퍼 마리오",
+      "ColorIndex": 2
+    },
+    "34ecc56a-f3d5-49b2-9645-80be29763bea": {
+      "ProjectGuid": "34ecc56a-f3d5-49b2-9645-80be29763bea",
+      "DisplayName": "주사위 게임",
+      "ColorIndex": 3
+    },
+    "0026315c-f83d-4593-aa71-2ab07edb072b": {
+      "ProjectGuid": "0026315c-f83d-4593-aa71-2ab07edb072b",
+      "DisplayName": "후보 추천하기",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

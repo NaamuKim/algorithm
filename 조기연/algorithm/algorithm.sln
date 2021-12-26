@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "근손실", "근손실\근손실.vcxproj", "{6DC8A0C2-4CFE-400E-826C-3CD0F70AD0F6}"
 EndProject
@@ -18,6 +18,14 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "괄호", "괄호\괄호.vcxproj", "{23190DD8-7B83-488C-BDDF-ABD364DCD8A8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "시저 암호", "시저 암호\시저 암호.vcxproj", "{8B7A0CF3-33EA-4537-8157-C795F987E721}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "퇴사", "퇴사\퇴사.vcxproj", "{E35E93F1-A20A-44B2-AE1D-D99C74EF8766}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "슈퍼 마리오", "슈퍼 마리오\슈퍼 마리오.vcxproj", "{AF7B408D-230F-4E5C-9F1A-B7E820DDDDC7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "주사위 게임", "주사위 게임\주사위 게임.vcxproj", "{34ECC56A-F3D5-49B2-9645-80BE29763BEA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "후보 추천하기", "후보 추천하기\후보 추천하기.vcxproj", "{0026315C-F83D-4593-AA71-2AB07EDB072B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +99,38 @@ Global
 		{8B7A0CF3-33EA-4537-8157-C795F987E721}.Release|x64.Build.0 = Release|x64
 		{8B7A0CF3-33EA-4537-8157-C795F987E721}.Release|x86.ActiveCfg = Release|Win32
 		{8B7A0CF3-33EA-4537-8157-C795F987E721}.Release|x86.Build.0 = Release|Win32
+		{E35E93F1-A20A-44B2-AE1D-D99C74EF8766}.Debug|x64.ActiveCfg = Debug|x64
+		{E35E93F1-A20A-44B2-AE1D-D99C74EF8766}.Debug|x64.Build.0 = Debug|x64
+		{E35E93F1-A20A-44B2-AE1D-D99C74EF8766}.Debug|x86.ActiveCfg = Debug|Win32
+		{E35E93F1-A20A-44B2-AE1D-D99C74EF8766}.Debug|x86.Build.0 = Debug|Win32
+		{E35E93F1-A20A-44B2-AE1D-D99C74EF8766}.Release|x64.ActiveCfg = Release|x64
+		{E35E93F1-A20A-44B2-AE1D-D99C74EF8766}.Release|x64.Build.0 = Release|x64
+		{E35E93F1-A20A-44B2-AE1D-D99C74EF8766}.Release|x86.ActiveCfg = Release|Win32
+		{E35E93F1-A20A-44B2-AE1D-D99C74EF8766}.Release|x86.Build.0 = Release|Win32
+		{AF7B408D-230F-4E5C-9F1A-B7E820DDDDC7}.Debug|x64.ActiveCfg = Debug|x64
+		{AF7B408D-230F-4E5C-9F1A-B7E820DDDDC7}.Debug|x64.Build.0 = Debug|x64
+		{AF7B408D-230F-4E5C-9F1A-B7E820DDDDC7}.Debug|x86.ActiveCfg = Debug|Win32
+		{AF7B408D-230F-4E5C-9F1A-B7E820DDDDC7}.Debug|x86.Build.0 = Debug|Win32
+		{AF7B408D-230F-4E5C-9F1A-B7E820DDDDC7}.Release|x64.ActiveCfg = Release|x64
+		{AF7B408D-230F-4E5C-9F1A-B7E820DDDDC7}.Release|x64.Build.0 = Release|x64
+		{AF7B408D-230F-4E5C-9F1A-B7E820DDDDC7}.Release|x86.ActiveCfg = Release|Win32
+		{AF7B408D-230F-4E5C-9F1A-B7E820DDDDC7}.Release|x86.Build.0 = Release|Win32
+		{34ECC56A-F3D5-49B2-9645-80BE29763BEA}.Debug|x64.ActiveCfg = Debug|x64
+		{34ECC56A-F3D5-49B2-9645-80BE29763BEA}.Debug|x64.Build.0 = Debug|x64
+		{34ECC56A-F3D5-49B2-9645-80BE29763BEA}.Debug|x86.ActiveCfg = Debug|Win32
+		{34ECC56A-F3D5-49B2-9645-80BE29763BEA}.Debug|x86.Build.0 = Debug|Win32
+		{34ECC56A-F3D5-49B2-9645-80BE29763BEA}.Release|x64.ActiveCfg = Release|x64
+		{34ECC56A-F3D5-49B2-9645-80BE29763BEA}.Release|x64.Build.0 = Release|x64
+		{34ECC56A-F3D5-49B2-9645-80BE29763BEA}.Release|x86.ActiveCfg = Release|Win32
+		{34ECC56A-F3D5-49B2-9645-80BE29763BEA}.Release|x86.Build.0 = Release|Win32
+		{0026315C-F83D-4593-AA71-2AB07EDB072B}.Debug|x64.ActiveCfg = Debug|x64
+		{0026315C-F83D-4593-AA71-2AB07EDB072B}.Debug|x64.Build.0 = Debug|x64
+		{0026315C-F83D-4593-AA71-2AB07EDB072B}.Debug|x86.ActiveCfg = Debug|Win32
+		{0026315C-F83D-4593-AA71-2AB07EDB072B}.Debug|x86.Build.0 = Debug|Win32
+		{0026315C-F83D-4593-AA71-2AB07EDB072B}.Release|x64.ActiveCfg = Release|x64
+		{0026315C-F83D-4593-AA71-2AB07EDB072B}.Release|x64.Build.0 = Release|x64
+		{0026315C-F83D-4593-AA71-2AB07EDB072B}.Release|x86.ActiveCfg = Release|Win32
+		{0026315C-F83D-4593-AA71-2AB07EDB072B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

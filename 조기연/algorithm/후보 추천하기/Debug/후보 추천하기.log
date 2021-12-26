@@ -1,0 +1,7 @@
+﻿  후보 추천하기.cpp
+C:\Git\algorithm\조기연\algorithm\후보 추천하기\후보 추천하기.cpp(11,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 's' 왼쪽은 무시됩니다.
+C:\Git\algorithm\조기연\algorithm\후보 추천하기\후보 추천하기.cpp(37,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Git\algorithm\조기연\algorithm\후보 추천하기\후보 추천하기.cpp(50,18): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Git\algorithm\조기연\algorithm\후보 추천하기\후보 추천하기.cpp(70,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Git\algorithm\조기연\algorithm\후보 추천하기\후보 추천하기.cpp(76,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  후보 추천하기.vcxproj -> C:\Git\algorithm\조기연\algorithm\Debug\후보 추천하기.exe
