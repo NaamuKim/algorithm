@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "86150d50-4eec-49ac-ab1d-ecc0355d592c": {
+      "ProjectGuid": "86150d50-4eec-49ac-ab1d-ecc0355d592c",
+      "DisplayName": "애너그램",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

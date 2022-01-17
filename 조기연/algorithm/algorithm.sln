@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "근손실", "근손실\근손실.vcxproj", "{6DC8A0C2-4CFE-400E-826C-3CD0F70AD0F6}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "괄호", "괄호\괄호.vcxproj", "{23190DD8-7B83-488C-BDDF-ABD364DCD8A8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "시저 암호", "시저 암호\시저 암호.vcxproj", "{8B7A0CF3-33EA-4537-8157-C795F987E721}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "애너그램", "애너그램\애너그램.vcxproj", "{86150D50-4EEC-49AC-AB1D-ECC0355D592C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,14 @@ Global
 		{8B7A0CF3-33EA-4537-8157-C795F987E721}.Release|x64.Build.0 = Release|x64
 		{8B7A0CF3-33EA-4537-8157-C795F987E721}.Release|x86.ActiveCfg = Release|Win32
 		{8B7A0CF3-33EA-4537-8157-C795F987E721}.Release|x86.Build.0 = Release|Win32
+		{86150D50-4EEC-49AC-AB1D-ECC0355D592C}.Debug|x64.ActiveCfg = Debug|x64
+		{86150D50-4EEC-49AC-AB1D-ECC0355D592C}.Debug|x64.Build.0 = Debug|x64
+		{86150D50-4EEC-49AC-AB1D-ECC0355D592C}.Debug|x86.ActiveCfg = Debug|Win32
+		{86150D50-4EEC-49AC-AB1D-ECC0355D592C}.Debug|x86.Build.0 = Debug|Win32
+		{86150D50-4EEC-49AC-AB1D-ECC0355D592C}.Release|x64.ActiveCfg = Release|x64
+		{86150D50-4EEC-49AC-AB1D-ECC0355D592C}.Release|x64.Build.0 = Release|x64
+		{86150D50-4EEC-49AC-AB1D-ECC0355D592C}.Release|x86.ActiveCfg = Release|Win32
+		{86150D50-4EEC-49AC-AB1D-ECC0355D592C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
