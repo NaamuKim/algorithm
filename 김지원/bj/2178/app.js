@@ -20,7 +20,7 @@ function solution(board) {
     } else {
       for (let i = 0; i <= 3; i++) {
         let newX = x + dx[i];
-        let newY = y + dy[i];
+        let newY = y + dy[i]; 
         if (newX >= 0 && newX <= xlength && newY >= 0 && newY <= ylength && board[newX][newY] === 1) {
           board[newX][newY] = 0;
           newAnswer++;
