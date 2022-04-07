@@ -1,19 +1,29 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
+int a[300];
 
-long long sum(std::vector<int> &a){
-    int sum = 0;
-    for(int item : a) sum+=item;
-    return sum;
-}
+int sum = 0;
 
-int main(){
-    vector<int> a;
-    a[0]=1;
-    a[1]=2;
-    a[2]=3;
-    cout << sum(a) << "\n";
+int main() {
+    for(int i=0; i<9; i++){
+        cin >> a[i];
+        sum += a[i];
+    }
+    for(int i = 0; i < 8; i++){
+        for(int j = i+1; j < 9; j++){
+            if(sum-(a[i]+a[j])==100) {
+                a[i]=0;
+                a[j]=0;
+                break;
+            }
+        }
+    }
+    sort(a, a+9);
+    for(int it: a) {
+        if(it!=0){
+            cout << it << "\n";
+        }
+    }
     return 0;
 }
