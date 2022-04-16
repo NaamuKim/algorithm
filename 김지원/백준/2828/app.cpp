@@ -12,7 +12,7 @@ int main(){
     for(int i =0; i < j; i++){
         int r = l+m-1;
         cin >> temp;
-        if(temp>l && temp<=r) continue;
+        if(temp>=l && temp<=r) continue;
         else {
             if(temp<l) {
                 cnt+=l-temp; 

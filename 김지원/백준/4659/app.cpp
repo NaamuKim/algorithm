@@ -16,7 +16,6 @@ int main(){
 		memset(cnt, 0, sizeof(cnt));
 		lcnt = vcnt = 0;
 		bool flag = 0;
-		int prev = -1;
 		for(int i = 0; i < s.size(); i++){
 			int idx = s[i] - 'a'; 
 			cnt[idx]++; 

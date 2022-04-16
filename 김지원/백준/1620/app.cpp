@@ -15,13 +15,10 @@ int main(){
         _map[s]=i;
         _map2[i]=s;
     }
-    for(int i=1; i<=m;i++){
+    for(int i =0; i<m;i++){
         cin >> s;
-        if(atoi(s.c_str())==0){
-            cout<<_map[s]<<"\n";
-        } else{
-            cout << _map2[atoi(s.c_str())]<<"\n";
-        }
+        if(atoi(s.c_str())==0) cout << _map[s] << "\n";
+        else cout << _map2[atoi(s.c_str())] << "\n";
     }
     return 0;
 }
