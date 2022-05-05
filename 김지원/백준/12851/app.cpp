@@ -2,28 +2,37 @@
 
 using namespace std;
 
-int n,k,vis[100004];
+int n,k;
 const int MAX=100000;
-struct A{
-    int a, b, c;
-}
+int dist[MAX+1];
+long long cnt[MAX+1];
+
 queue<int> q;
 int main(){
     cin >> n >> k;
-    vis[n]=1;
+    if(n == k){
+        puts("0"); puts("1");
+        return 0; 
+    } 
+    dist[n]=0;
+    cnt[n]=1;
     q.push(n);
     while(q.size()){
-        int a = q.front();
+        int now = q.front(); 
         q.pop();
-        for(int next: {a-1, a+1, a*2}) {
+        for(int next: {now-1, now+1, now*2}) {
             if(0 <= next && next <= MAX){
-                if(!vis[next]){
+                if(!dist[next]){
                     q.push(next);
-                    vis[next]=vis[n]+1;
-                }
+                    dist[next]=dist[now]+1;
+                    cnt[next]+=cnt[now];
+                } else if(dist[next]==dist[now]+1){
+                    cnt[next]+=cnt[now];
+                };
             }
         }
     }
-    cout << vis[k]-1 <<"\n";
-    cout 
+    cout << dist[k] <<"\n";
+    cout << cnt[k] << "\n";
+    return 0;
 }
