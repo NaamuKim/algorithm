@@ -1,4 +1,4 @@
-#include <bits/stc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 int a[3], vis[64][64][64],n;

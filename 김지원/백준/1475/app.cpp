@@ -22,3 +22,4 @@ int main(void){
     cout << max(num, (arr[6] + arr[9] + 1) /2);
     return 0;    
 }
+        

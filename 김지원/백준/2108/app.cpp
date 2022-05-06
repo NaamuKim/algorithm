@@ -16,9 +16,9 @@ int main(){
     int sum=0;
     for(int i =0; i<n; i++){
         sum+=a[i];
-        mx=max(mx,a[i]);
         many[i]++;
     }
+    for(int i =0; i<)
     avg=sum/v.size();
     sort(v.begin(), v.end());
     mid=v[v.size()/2-1];
