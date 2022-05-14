@@ -2,37 +2,33 @@
 
 using namespace std;
 
-int n;
-char a[101][101];
+#define pp pair<int,int>
 
-string quard(int y, int x, int size){
-    cout << y << " " << x << " " << size << "\n";
-    if(size==1) return string(1, a[y][x]);
-    char b = a[y][x];
-    string ret="";
-    for(int i =y; i<y+size; i++){
-        for(int j =x; j<x+size; j++){
-            if(b!=a[i][j]){
-                ret+='(';
-                ret+=quard(y, x, size/2); 
-                ret+=quard(y, x+size/2, size/2);
-                ret+=quard(y+size/2, x, size/2);
-                ret+=quard(y+size/2, x+size/2, size/2);
-                ret+=')';
-                return ret; 
-            }
-        }
+int n, c;
+int a[1004];
+map<int, int> _map, first;
+
+bool cmp(pp &a, pp &b){
+    if(a.second==b.second){
+        return first[a.first]<first[b.first];
     }
-    return string(1, a[y][x]);
+    return a.second>b.second;
 }
 
 int main(){
-    cin >> n;
+    ios_base::sync_with_stdio(0); cin.tie(NULL); cout.tie(NULL);
+    cin >> n >> c;
     for(int i =0; i<n; i++){
-        for(int j =0; j<n; j++){
-            cin >> a[i][j];
+        cin >> a[i];
+        _map[a[i]]++;
+        if(first[a[i]]==0) first[a[i]]=i+1;
+    }
+    vector<pp> vec(_map.begin(), _map.end());
+    sort(vec.begin(), vec.end(), cmp);
+    for(auto item: vec){
+        for(int i=0; i<item.second; i++){
+            cout <<item.first<<" ";
         }
     }
-    cout << quard(0,0,n)<<"\n";
     return 0;
 }

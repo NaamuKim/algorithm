@@ -98,7 +98,8 @@
     "semaphore": "cpp",
     "shared_mutex": "cpp",
     "span": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "filesystem": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
