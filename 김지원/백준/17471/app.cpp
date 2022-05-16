@@ -7,7 +7,9 @@ int n, a[11], m, temp, ret = INF, comp[11], visited[11];
 vector<int> adj[11]; 
 
 
+
 pair<int, int> dfs(int here, int value){
+    //here는 adj의 index, value는 1군단 2군단 판별
     visited[here] = 1; 
     pair<int, int> ret = {1, a[here]}; 
     for(int there : adj[here]){
@@ -44,8 +46,8 @@ int main(){
             }
             else idx2 = j + 1; 
         }
-        pair<int, int> comp1 = dfs(idx1, 1);
-        pair<int, int> comp2 = dfs(idx2, 0);   
+        pair<int, int> comp1 = dfs(idx1, 1); //1군단은 value:1
+        pair<int, int> comp2 = dfs(idx2, 0); //2군단은 value:0
         if(comp1.first + comp2.first == n) ret = min(ret, abs(comp1.second - comp2.second)); 
     } 
     cout << (ret == INF ? -1 : ret)<< "\n";
