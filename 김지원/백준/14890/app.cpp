@@ -11,7 +11,7 @@ void solve(int a[104][104]){
         for(j=0; j<n-1; j++){
             if(a[i][j]==a[i][j+1]) cnt++; //같은 높이면 ++
             else if(a[i][j] + 1 == a[i][j + 1] && cnt >= l) cnt = 1; //높이차이 1이고 같은 높이 낮은 곳이 l 이상이면 cnt =1 
-            else if(a[i][j] - 1 == a[i][j + 1] && cnt >= 0) cnt = -l + 1; //높은 곳으로 가는 타이밍에 cnt가 0보다 크면 
+            else if(a[i][j] - 1 == a[i][j + 1] && cnt >= 0) cnt = -l + 1; //높은 곳으로 가는 타이밍에 cnt가 0보다 크면 cnt에 1-경사로크기
             else break;
         }
         if(j == n-1 && cnt>=0) ret++;
