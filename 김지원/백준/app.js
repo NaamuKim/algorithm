@@ -2,15 +2,26 @@ const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 let input = fs.readFileSync(filePath).toString().trim().split('\n');
 
-const one = +input[0];
-const arr = input[1].split(' ').map((item) => Number(item));
+const [N, M] = input.shift().split(' ');
+
+const Nset = new Set();
+const Mset = new Set();
+for (let i = 0; i < input.length; i++) {
+  if (i < N) {
+    Nset.add(input[i]);
+  } else {
+    Mset.add(input[i]);
+  }
+}
+
+let answer = [];
+Mset.forEach((item) => {
+  if (Nset.has(item)) answer.push(item);
+});
+answer.sort();
 
 console.log(solution());
 
 function solution() {
-  let answer = 0;
-  arr.forEach((item) => {
-    if (item === one) answer++;
-  });
-  return answer;
+  return answer.length + '\n' + answer.join('\n');
 }
