@@ -1,56 +1,17 @@
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
-bool flag;
-int n,x; 
-string s;
-vector<int> v;
+int n, m, x;
+char s[10];
 int main(){
-    cin >> n; 
-    for(int i =0; i<n; i++){
-        cin >> s >> x;
-        switch(string s){
-            case "add":
-            v.push_back(x);
-            break;
-            case "remove":
-            for(int i =0; i<v.size(); i++){
-                if(v[i]==x) v.erase(v.begin()+i,v.begin()+i+1);
-            }
-            break;
-            case "check":
-            flag =0;
-            for(int i =0; i<v.size(); i++){
-                if(v[i]==x) flag =1;
-            }
-            flag==1 ? cout << 1 <<"\n" : cout << 0 <<"\n";
-            break;
-            case "toggle": 
-            flag =0;
-            for(int i =0; i<v.size(); i++){
-                if(v[i]==x) {
-                    v.erase(v.begin()+i,v.begin()+i+1);
-                    flag =1;
-                }
-            }
-            if(flag==0) v.push_back(x);
-            break;
-            case "all":
-            while(v.size()){
-                v.pop_back();
-            }
-            for(int i =1; i<=20; i++){
-                v.push_back(i);
-            }
-            break;
-            case "empty":
-            while(v.size()){
-                v.pop_back();
-            }
-            break;
-            default:
-            break;
-        }
+    scanf("%d", &m);
+    for(int i=0; i<m; i++){
+        scanf("%s %d", &s, &x);
+        if (s[0]=='a' && s[1]=='d') n |= (1 << x);
+        else if(s[0]=='r') n &= ~(1<<x);
+        else if(s[0]=='c') printf("%d\n", (n&(1 << x)) ==0? 0: 1);
+        else if(s[0]=='t') n^=(1<<x);
+        else if(s[0]=='e') n = 0;
+        else n=(1<<21)-1;
     }
     return 0;
 }
