@@ -39,12 +39,6 @@ int main(){
         }
         q=temp; //빈 큐에 장애물들을 쭉 넣어주기 하위 while문이 돌아가기 위해
     }    
-    for(int i =0; i<n; i++){
-        for(int j =0; j<m; j++){
-            cout <<vis[i][j];
-        }
-        cout <<"\n";
-    }
     cout << vis[_y2][_x2] <<"\n";
     return 0;
 }
