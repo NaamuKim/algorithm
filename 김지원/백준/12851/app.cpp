@@ -13,7 +13,7 @@ int main(){
     if(n == k){
         puts("0"); puts("1");
         return 0; 
-    } 
+    }  
     dist[n]=0;
     cnt[n]=1;
     q.push(n);
