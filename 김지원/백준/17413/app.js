@@ -4,8 +4,6 @@ let input = fs.readFileSync(filePath).toString().trim().split('\n');
 
 const str = input[0];
 
-//태그 있으면 태그끝까지 그대로 내보내고 없으면 태그까지 뒤집고
-
 console.log(solution());
 
 function solution() {
