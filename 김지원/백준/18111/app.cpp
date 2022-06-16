@@ -1,50 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
-int n, m, b, tim=987654321, h, maxi=0, mini=257, a[501][501], r=0,tmp;
+int n, m, b, mintime=987654321, board[501][501], maxheight=-1;
 
-bool canBlock(int r){
-    int newB=b;
-    for(int i=0; i<n; i++){
-        for(int j=0; j<m; j++){
-            if(a[i][j]<r){
-                newB-=(r-a[i][j]);
-                if(newB<0) return false;
-            }
-        }
-    }
-    return true;
-}
-int main(){
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(NULL); cout.tie(NULL);
     cin >> n >> m >> b;
     for(int i=0; i<n; i++){
         for(int j=0; j<m; j++){
-            cin >> a[i][j];
-            mini=min(mini,a[i][j]);
-            maxi=max(maxi,a[i][j]);
+            cin >> board[i][j];
         }
     }
-    //블록 여유 판별
-    r=maxi;
-    while(r>-1){
-        tmp=0;
-        if(canBlock(r)){
-            for(int i=0; i<n; i++){
-                for(int j=0; j<m; j++){
-                    if(a[i][j]<r){
-                        tmp+=(r-a[i][j]);
-                    } else if(a[i][j]>r){
-                        tmp+=2*(a[i][j]-r);
-                    }
-                }
-            }
-            if(tmp<tim){
-                tim=tmp;
-                h=r;
-            }
-        }
-        r--;
-    }
-
-    cout << tim<< " " << h <<"\n";
+   for (int height = 0; height <= 256; height++) {
+		int inven = 0;//인벤에서 꺼내는게 필요한거1초 늘어남
+		int remove = 0;//제거하는 양 2초 늘어남 개수
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				int curheight = board[i][j] - height;
+				if (curheight < 0) inven -= curheight;
+				else remove += curheight;
+			}
+		}
+		if (remove + b >= inven) {
+			int ttime = 2 * remove + inven;
+			if (mintime >= ttime) {
+				mintime = ttime;
+				maxheight = height;
+			}
+		}
+	}
+    cout << mintime << " " << maxheight <<'\n';
     return 0;
 }
