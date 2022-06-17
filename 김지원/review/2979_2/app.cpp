@@ -2,6 +2,7 @@
 using namespace std;
 int a, b, c, cnt[101], ret, s, e;
 int main(){
+    ios_base::sync_with_stdio(0); cin.tie(NULL); cout.tie(NULL);
     cin >> a >> b >> c;
     for(int i=0; i<3; i++){
         cin >> s >> e;
