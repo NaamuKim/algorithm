@@ -1,30 +1,27 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-string s, ret;
-map<char, int> _map;
-int flag=0;
+#include<bits/stdc++.h> 
+using namespace std; 
+string s, ret; 
+int cnt[200], flag; 
 char mid;
-
-int main(){
-    cin >> s;
-    for(int i=0; i <s.size();i++){
-        _map[s[i]]++;
-    }
-    for(auto it : _map){
-        if(it.second & 1) {
-            flag++;
-            mid=it.first; 
-        }
-        if(flag==2) break;
-        for(int j = 0; j < _map.size();j+=2){
-            cout << it.first << "\n";
-            ret = it.first + ret;
-            ret += it.first;
-        }
-    }
-    if(mid) ret.insert(ret.begin() + ret.size() / 2, mid);
-    if(flag==2) cout << "I'm Soory Hansoo";
-    else cout <<ret<<"\n";
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cin >> s;
+	for(char a : s)cnt[a]++;
+	for(int i = 'Z'; i >= 'A'; i--){
+		if(cnt[i]){
+			if(cnt[i] & 1){
+				mid = char(i);flag++;
+				cnt[i]--;
+			}
+			if(flag == 2)break;
+			for(int j = 0; j < cnt[i]; j += 2){
+				ret = char(i) + ret; 
+				ret += char(i);
+			}
+		}
+	}
+	if(mid)ret.insert(ret.begin() + ret.size() / 2, mid);
+	if(flag == 2)cout << "I'm Sorry Hansoo\n";
+	else cout << ret << "\n"; 
 }
