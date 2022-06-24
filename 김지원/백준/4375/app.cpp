@@ -11,7 +11,7 @@ int main(){
         int cnt = 1, ret=1;
         while(true){
             if(cnt % n ==0){
-                printf("%d", ret);
+                printf("%d\n", ret);
                 return;
             }
             else{
