@@ -14,6 +14,6 @@ int main(){
             mid=it.first;
         }
         if(flag>2) break;
-
+        
     }
 }

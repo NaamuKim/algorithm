@@ -17,7 +17,7 @@ int main() {
         long long ret = 1;
         for(auto c: _map){
             ret *=((long long)c.second+1);
-        }5
+        };
         ret-=1;
         cout <<ret<< "\n";
     }
