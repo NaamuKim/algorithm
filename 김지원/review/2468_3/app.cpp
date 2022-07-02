@@ -7,7 +7,7 @@ void dfs(int y, int x, int t){
     for(int i=0; i<4; i++){
         int ny=y+dy[i];
         int nx=x+dx[i];
-        if(ny<0|| ny>=n || nx<0 || nx>=m || vis[ny][nx]) continue;
+        if(ny<0|| ny>=n || nx<0 || nx>=n || vis[ny][nx]) continue;
         if(a[ny][nx]>t) dfs(ny,nx,t);
     }
     return;
