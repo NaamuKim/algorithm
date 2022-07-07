@@ -22,7 +22,7 @@ int main(){
         for(int j =0; j<n; j++){
             cin >>a[i][j];
             if(a[i][j]==1)_home.push_back({i,j});
-            if(a[i][j]==2)chicken.push_back({i,j});
+            if(a[i][j]==2)  chicken.push_back({i,j});
         }
     }
     vector<int> v;
