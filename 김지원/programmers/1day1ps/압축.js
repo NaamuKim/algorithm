@@ -1,20 +1,20 @@
-function solution(msg) {
-  let answer = [];
-  const alpha = [null, ...Array.from(Array(26)).map((e, i) => String.fromCharCode(i + 65))];
-  let lp = 0,
-    rp = msg.length - 1;
-  while (1) {
-    if (lp === msg.length - 1) break;
-    console.log(rp - lp);
-    const piece = msg.slice(lp, rp - lp + 1);
-    console.log(piece);
-    const idx = alpha.indexOf(piece);
-    if (idx !== -1) {
-      answer.push(idx);
-      rp--;
-      continue;
+const solution = (msg) => {
+  const arr = [];
+  for (let i = 'A'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
+    arr.push(String.fromCharCode(i));
+  }
+  const answer = [];
+  let i = 0;
+  while (i < msg.length) {
+    let j = 1;
+    while (arr.indexOf(msg.substring(i, i + j)) !== -1 && i + j <= msg.length) {
+      j++;
     }
-    lp++;
+    arr.push(msg.substring(i, i + j));
+    answer.push(arr.indexOf(msg.substring(i, i + j - 1)) + 1);
+    i += j - 1;
   }
   return answer;
-}
+};
+
+solution('TOBEORNOTTOBEORTOBEORNOT');
