@@ -1,54 +1,68 @@
 const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 let input = fs.readFileSync(filePath).toString().trim().split('\n');
-
-const dy = [0, 1, 0, -1, -1, -1, 1, 1];
-const dx = [-1, 0, 1, 0, -1, 1, -1, 1];
-let w, h, arr;
+const n = +input.shift();
+const dy = [0, 1, 0, -1];
+const dx = [1, 0, -1, 0];
+const arr = input.map((item) => item.split(''));
+let vis = Array.from({ length: n }, () => Array.from({ length: n }).fill(0));
 
 const solution = () => {
-  let cnt = 0;
-  [w, h] = input.shift().split(' ').map(Number);
-  if (w === 0 && h === 0) {
-    return;
-  } else if (w === 1 && h === 1) {
-    cnt = Number(input.shift());
-  } else {
-    arr = Array.from(Array(h), () => Array(w).fill(0));
-    // 배열 채우기
-    for (let i = 0; i < h; i++) {
-      let tmp = input[i].split(' ').map(Number);
-      arr[i] = tmp;
-    }
-    // 채운만큼 삭제
-    input = input.slice(h);
-    for (let i = 0; i < h; i++) {
-      for (let j = 0; j < w; j++) {
-        if (arr[i][j] === 1) {
-          dfs(i, j);
-          cnt += 1;
-        }
+  let cnt1 = 0,
+    cnt2 = 0;
+  console.log(n);
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      if (!vis[i][j]) {
+        dfs(i, j, arr[i][j]);
+        cnt1++;
       }
     }
   }
-  return cnt;
+  vis = Array.from({ length: n }, () => Array.from({ length: n }).fill(0));
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      if (!vis[i][j]) {
+        dfs2(i, j, arr[i][j]);
+        cnt2++;
+      }
+    }
+  }
+  return cnt1 + ' ' + cnt2;
 };
 
-const dfs = (i, j) => {
-  if (isOnRange(i, j) && arr[i][j] === 1) {
-    arr[i][j] = 0;
-    for (let k = 0; k < dy.length; k++) {
-      dfs(i + dx[k], j + dy[k]);
+const dfs = (y, x, item) => {
+  for (let k = 0; k < dy.length; k++) {
+    const ny = y + dy[k];
+    const nx = x + dx[k];
+    if (isOnRange(ny, nx) && arr[ny][nx] === item) {
+      vis[ny][nx] = 1;
+      dfs(ny, nx, arr[ny][nx]);
     }
   }
 };
 
+const dfs2 = (y, x, item) => {
+  for (let k = 0; k < dy.length; k++) {
+    const ny = y + dy[k];
+    const nx = x + dx[k];
+    if (isOnRange(ny, nx) && isSameColor(item, arr[ny][nx])) {
+      vis[ny][nx] = 1;
+      dfs2(ny, nx, arr[ny][nx]);
+    }
+  }
+};
+
+const isSameColor = (now, next) => {
+  if (now === 'R' && next === 'G') return true;
+  if (now === 'G' && next === 'R') return true;
+  if (now === next) return true;
+  return false;
+};
+
 const isOnRange = (i, j) => {
-  if (i < 0 || i >= h || j < 0 || j >= w) return false;
+  if (i < 0 || i >= n || j < 0 || j >= n || vis[i][j] === 1) return false;
   return true;
 };
-while (input.length !== 0) {
-  const answer = solution();
-  answer !== undefined && console.log(answer);
-  arr = [];
-}
+
+console.log(solution());
