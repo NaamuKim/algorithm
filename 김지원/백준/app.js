@@ -1,31 +1,38 @@
 const fs = require('fs');
+const { report } = require('process');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 const input = fs.readFileSync(filePath).toString().trim().split('\n');
 
-const INF = 987654321;
-
 const n = +input.shift();
 const arr = input.map((item) => item.split(' ').map(Number));
-const dp = Array.from({ length: 16 }, () => Array.from({ length: 1 << 16 }).fill(-1));
+const dp = Array.from({ length: 24 }, () => Array.from({ length: 24 }, () => Array.from({ length: 3 }).fill(0)));
 
-const tsp = (here, visited) => {
-  // 마지막 index에 접근했을 때 값이 있는지에 따라 분기 처리
-  if (visited === (1 << n) - 1) return arr[here][0] ? arr[here][0] : INF;
-
-  if (dp[here][visited] !== -1) return dp[here][visited];
-
-  dp[here][visited] = INF;
-  for (let i = 0; i < n; i++) {
-    // 방문한 곳이거나 현재 idx면 continue
-    if (visited & (1 << i)) continue;
-    if (arr[here][i] === 0) continue;
-
-    // 현재 위치에서 마지막 위치로 갈 때 어느 경로를 거쳐가야(깊이 우선) 최단경로인지
-    dp[here][visited] = Math.min(dp[here][visited], tsp(i, visited | (1 << i)) + arr[here][i]);
+console.log(arr);
+const check = (y, x, d) => {
+  if (d === 0 || d === 2) {
+    if (!arr[y][x]) return true;
+  } else if (d === 1) {
+    if (arr[y][x] === 0 && arr[y - 1][x] === 0 && arr[y][x - 1] === 0) return true;
   }
-  return dp[here][visited];
+  return false;
 };
 
-const solution = () => tsp(0, 1);
+const solution = () => {
+  dp[1][2][0] = 1;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (check(i, j + 1, 0)) dp[i][j + 1][0] += dp[i][j][0];
+      if (check(i + 1, j + 1, 1)) dp[i + 1][j + 1][1] += dp[i][j][0];
+
+      if (check(i + 1, j, 2)) dp[i + 1][j][2] += dp[i][j][2];
+      if (check(i + 1, j + 1, 1)) dp[i + 1][j + 1][1] += dp[i][j][2];
+
+      if (check(i, j + 1, 0)) dp[i][j + 1][0] += dp[i][j][1];
+      if (check(i + 1, j, 2)) dp[i + 1][j][2] += dp[i][j][1];
+      if (check(i + 1, j + 1, 1)) dp[i + 1][j + 1][1] += dp[i][j][1];
+    }
+  }
+  return dp[n][n][0] + dp[n][n][1] + dp[n][n][2];
+};
 
 console.log(solution());
