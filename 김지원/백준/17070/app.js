@@ -4,18 +4,18 @@ const input = fs.readFileSync(filePath).toString().trim().split('\n');
 
 const n = +input.shift();
 const arr = Array.from({ length: 24 }, () => Array.from({ length: 24 }).fill(0));
-input.forEach((item, i) =>
-  item
+const dp = Array.from({ length: 24 }, () => Array.from({ length: 24 }, () => Array.from({ length: 3 }).fill(0)));
+
+input.forEach((strArr, i) =>
+  strArr
     .split(' ')
     .map(Number)
     .forEach((data, j) => (arr[i + 1][j + 1] = data))
 );
-const dp = Array.from({ length: 24 }, () => Array.from({ length: 24 }, () => Array.from({ length: 3 }).fill(0)));
-
-const check = (y, x, d) => {
-  if (d === 0 || d === 2) {
+const check = (y, x, pos) => {
+  if (pos === 0 || pos === 2) {
     if (!arr[y][x]) return true;
-  } else if (d === 1) {
+  } else if (pos === 1) {
     if (arr[y][x] === 0 && arr[y - 1][x] === 0 && arr[y][x - 1] === 0) return true;
   }
   return false;
@@ -36,7 +36,6 @@ const solution = () => {
       if (check(i + 1, j + 1, 1)) dp[i + 1][j + 1][1] += dp[i][j][1];
     }
   }
-
   return dp[n][n][0] + dp[n][n][1] + dp[n][n][2];
 };
 
