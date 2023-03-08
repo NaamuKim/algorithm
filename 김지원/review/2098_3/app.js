@@ -22,7 +22,6 @@ const tsp = (here, visited) => {
 
     dp[here][visited] = Math.min(dp[here][visited], tsp(i, visited | (1 << i)) + arr[here][i]);
   }
-  console.log(here, visited, dp[0][1]);
   return dp[here][visited];
 };
 
