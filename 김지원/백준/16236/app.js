@@ -2,7 +2,6 @@ const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 const input = fs.readFileSync(filePath).toString().trim().split("\n");
 
-// const coorArr = Array.from({ length: 7 }, () => new Array());
 let q = [];
 const n = +input.shift();
 let answer = 0;
@@ -39,17 +38,11 @@ const dx = [0, -1, 1, 0];
 function bfs() {
   while (q.length) {
     const { y, x } = q.shift();
-    if (
-      q.findIndex(
-        ({ y, x }) => arr[y][x] < babyShark.size && arr[y][x] >= 1
-      ) !== -1
-    ) {
-      q.sort((a, b) => {
-        if (a.y === b.y) return a.x - b.x;
-        return a.y - b.y;
-      });
-      q.sort((a, b) => vis[a.y][a.x] - vis[b.y][b.x]);
-    }
+    q.sort((a, b) => {
+      if (a.y === b.y) return a.x - b.x;
+      return a.y - b.y;
+    });
+    q.sort((a, b) => vis[a.y][a.x] - vis[b.y][b.x]);
     if (arr[y][x] >= 1 && arr[y][x] < babyShark.size) {
       babyShark.eat();
       answer += vis[y][x];
@@ -75,6 +68,5 @@ function bfs() {
   }
 }
 
-//dfs(babyShark.initialValue.y, babyShark.initialValue.x);
 bfs();
 console.log(answer);
